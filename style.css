@@ -1,20 +1,4 @@
-@keyframes slideText {
-  0% {
-    transform: translate(-50%, -50%) translateX(-100%);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateX(0);
-  }
-  100% {
-    transform: translate(-50%, -50%) translateX(100%);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+body {
+    touch-action: pan-y;
+    overscroll-behavior: contain;
 }
