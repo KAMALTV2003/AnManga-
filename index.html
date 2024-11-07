@@ -15,6 +15,8 @@
       background: #333;
       color: white;
       position: relative;
+      touch-action: pan-y;
+      overscroll-behavior: contain;
     }
 
     /* الخلفية المتحركة */
@@ -121,12 +123,7 @@
     }
 
     @keyframes bounce {
-
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
+      0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
       }
 
@@ -191,6 +188,23 @@
         behavior: "smooth"
       });
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      let startY = 0;
+      let currentY = 0;
+      const threshold = 100;
+
+      document.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].pageY;
+      });
+
+      document.addEventListener('touchmove', function(e) {
+        currentY = e.touches[0].pageY;
+        if (currentY - startY > threshold) {
+          location.reload();
+        }
+      });
+    });
   </script>
 
 </body>
